@@ -45,6 +45,7 @@ public class CollectionTestSuite {
         numbers.add(oddNumber);
         ArrayList<Integer> result= oddNumbersExterminator.exterminate(numbers);
         System.out.println("Testing " + result);
+        Assert.assertEquals(1,result.size());
         Assert.assertEquals(eventNumber,result.get(0));
     }
 }
