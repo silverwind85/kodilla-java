@@ -161,6 +161,22 @@ public class ShapeCollectorTestSuite {
         //Then
         Assert.assertFalse(result);
     }
+    @Test
+    public void testShowFigures() {
+        //Given
+        ShapeCollector shapeCollector = new ShapeCollector();
+        Shape circle = new Circle("Circle", 5);
+        Shape triangle = new Triangle("Triangle", 5,9);
+        Shape square = new Square("Square", 5);
+        shapeCollector.addFigure(circle);
+        shapeCollector.addFigure(triangle);
+        shapeCollector.addFigure(square);
+        //When
+        String showString = shapeCollector.showFigures();
+        //Then
+        Assert.assertEquals(circle.toString() + triangle.toString() +square.toString() ,showString);
+
+    }
 }
 
 
