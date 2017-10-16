@@ -37,20 +37,14 @@ public class ForumStatistic {
         numberOfUsers = statistics.usersNames().size();
         numberOfPosts = statistics.postsCount();
         numberOfComments = statistics.commentsCount();
-        if(numberOfUsers==0){
-            averageNumberOfPostsPerUser=0;
-        }else{
-            averageNumberOfPostsPerUser = numberOfPosts/numberOfUsers;
+        if (numberOfUsers != 0) {
+            averageNumberOfPostsPerUser = numberOfPosts / numberOfUsers;
         }
-        if(numberOfUsers==0){
-            averageNumberOfCommentsPerUser = 0;
-        }else{
-            averageNumberOfCommentsPerUser = numberOfComments/numberOfUsers;
+        if (numberOfUsers != 0) {
+            averageNumberOfCommentsPerUser = numberOfComments / numberOfUsers;
         }
-        if(numberOfPosts==0){
-            averageNumberOfCommentsPerPost = 0;
-        }else {
-            averageNumberOfCommentsPerPost = numberOfComments/numberOfPosts;
+        if (numberOfPosts != 0) {
+            averageNumberOfCommentsPerPost = numberOfComments / numberOfPosts;
         }
     }
 
@@ -65,6 +59,7 @@ public class ForumStatistic {
                 ", averageNumberOfCommentsPerPost=" + averageNumberOfCommentsPerPost +
                 '}';
     }
+
     public void showStatistic() {
         toString();
 

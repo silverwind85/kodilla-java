@@ -1,13 +1,23 @@
 package com.kodilla.testing.user;
 
 public class SimpleUser {
-    private String userName;
+    private String username;
+    private String realName;
 
-    public SimpleUser(String userName) {
-        this.userName = userName;
+    public SimpleUser(String username, String realName) {
+        this.username = username;
+        this.realName = realName;
     }
 
-    public String getUserName() {
-        return userName;
+    public SimpleUser(String username) {
+        this.username = username;
+    }
+
+    public String getRealName() {
+        return realName;
+    }
+
+    public String getUsername() {
+        return username;
     }
 }
