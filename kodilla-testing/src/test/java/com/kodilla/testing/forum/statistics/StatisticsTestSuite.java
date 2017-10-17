@@ -65,14 +65,15 @@ public class StatisticsTestSuite {
         }
         int postCountMock = 500;
         int commentsCountMock = 1000;
+        when(statisticsMock.usersNames()).thenReturn(users);
         when(statisticsMock.postsCount()).thenReturn(postCountMock);
         when(statisticsMock.commentsCount()).thenReturn(commentsCountMock);
         //When
         ForumStatistic forumStatistic = new ForumStatistic();
         forumStatistic.calculateAdvStatistics(statisticsMock);
         //Then
-        Assert.assertEquals(200, forumStatistic.getAverageNumberOfCommentsPerPost());
+        Assert.assertEquals(2, forumStatistic.getAverageNumberOfCommentsPerPost());
         Assert.assertEquals(10, forumStatistic.getAverageNumberOfCommentsPerUser());
-        Assert.assertEquals(20, forumStatistic.getAverageNumberOfPostsPerUser());
+        Assert.assertEquals(5, forumStatistic.getAverageNumberOfPostsPerUser());
     }
 }
