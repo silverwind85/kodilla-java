@@ -92,7 +92,7 @@ public class BookDirectoryTestSuite {
         List<Book> theListOfBooks0 = bookLibrary.listBooksInHandsOf(user);
         // Then
         assertEquals(0, theListOfBooks0.size());
-        verify(libraryDatabaseMock, times(0)).listBooksInHandsOf(user);
+        verify(libraryDatabaseMock, times(1)).listBooksInHandsOf(user);
     }
 
     @Test
@@ -124,7 +124,7 @@ public class BookDirectoryTestSuite {
         List<Book> theListOfBooks5 = bookLibrary.listBooksInHandsOf(user);
         // Then
         assertEquals(5, theListOfBooks5.size());
-        verify(libraryDatabaseMock, times(5)).listBooksInHandsOf(user);
+        verify(libraryDatabaseMock, times(1)).listBooksInHandsOf(user);
     }
 
     private List<Book> generateListOfNBooks(int booksQuantity) {
