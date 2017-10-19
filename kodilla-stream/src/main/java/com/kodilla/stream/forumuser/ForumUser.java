@@ -4,24 +4,24 @@ import java.time.LocalDate;
 
 public final class ForumUser {
 
-    private final int idUser;
+    private final int id;
     private final String username;
     private final char gender;
     private final LocalDate dateOfBirth;
-    private final int post;
+    private final int numberOfPost;
 
-    public ForumUser(final int idUser, final String username,
+    public ForumUser(final int id, final String username,
                      final char gender, final int year, final int month,
-                     final int day, final int post) {
-        this.idUser = idUser;
+                     final int day, final int numberOfPost) {
+        this.id = id;
         this.username = username;
         this.gender = gender;
         this.dateOfBirth = LocalDate.of(year, month, day);
-        this.post = post;
+        this.numberOfPost = numberOfPost;
     }
 
-    public int getIdUser() {
-        return idUser;
+    public int getId() {
+        return id;
     }
 
     public String getUsername() {
@@ -36,18 +36,18 @@ public final class ForumUser {
         return dateOfBirth;
     }
 
-    public int getPost() {
-        return post;
+    public int getNumberOfPost() {
+        return numberOfPost;
     }
 
     @Override
     public String toString() {
         return "ForumUser{" +
-                "idUser=" + idUser +
+                "id=" + id +
                 ", username='" + username + '\'' +
                 ", gender=" + gender +
                 ", dateOfBirth=" + dateOfBirth +
-                ", post=" + post +
+                ", numberOfPost=" + numberOfPost +
                 '}';
     }
 }

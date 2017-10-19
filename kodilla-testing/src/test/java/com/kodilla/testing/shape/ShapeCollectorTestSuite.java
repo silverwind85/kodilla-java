@@ -53,6 +53,25 @@ public class ShapeCollectorTestSuite {
         //Then
         Assert.assertEquals(1,shapeCollector.getFigureQuantity());
     }
+
+    @Test
+    public void testGetCircle2() {
+        //Given
+        ShapeCollector shapeCollector = new ShapeCollector();
+        Shape circle = new Circle("Circle", 5);
+        Shape circle1 = new Circle("Circle2", 9);
+        Shape circle2 = new Circle("Circle3", 10);
+        shapeCollector.addFigure(circle);
+        shapeCollector.addFigure(circle1);
+        shapeCollector.addFigure(circle2);
+        //When
+        Shape retrievedCircle = shapeCollector.getFigure(0);
+        Shape retrievedCircle2 = shapeCollector.getFigure(2);
+        //Then
+        Assert.assertEquals(circle,retrievedCircle);
+        Assert.assertEquals(circle2,retrievedCircle2);
+
+    }
     @Test
     public void testGetCircle() {
         //Given

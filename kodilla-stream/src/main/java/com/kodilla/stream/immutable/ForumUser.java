@@ -3,8 +3,8 @@ package com.kodilla.stream.immutable;
 public final class ForumUser {
     private final String name;
     private final String realName;
-    private final int posts ;
-    private final int comments ;
+    private final int posts;
+    private final int comments;
 
     public ForumUser(final String name, final String realName, final int posts, final int comments) {
         this.name = name;
