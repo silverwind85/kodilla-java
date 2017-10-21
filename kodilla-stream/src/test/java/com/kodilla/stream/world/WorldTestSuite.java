@@ -33,19 +33,19 @@ public class WorldTestSuite {
         BigDecimal resultAsia = BigDecimal.ZERO;
         BigDecimal resultNorthAmerica = BigDecimal.ZERO;
 
-        for (Country country : europe.getCountriesList()) {
+        for (Country country : europe.getCountries()) {
             resultEurope = resultEurope.add(country.getPeopleQuantity());
         }
-        for (Country country : asia.getCountriesList()) {
+        for (Country country : asia.getCountries()) {
             resultAsia = resultAsia.add(country.getPeopleQuantity());
         }
-        for (Country country : northAmerica.getCountriesList()) {
+        for (Country country : northAmerica.getCountries()) {
             resultNorthAmerica = resultNorthAmerica.add(country.getPeopleQuantity());
         }
         BigDecimal resultWord = (resultAsia.add(resultEurope)).add(resultNorthAmerica);
 
         //When
-        Assert.assertEquals(3, earth.getContinentsList().size());
+        Assert.assertEquals(3, earth.getContinents().size());
         // Europe manual count 433347440
         Assert.assertEquals(new BigDecimal("433347440"),resultEurope);
         Assert.assertEquals(new BigDecimal("1564673720"),resultAsia);

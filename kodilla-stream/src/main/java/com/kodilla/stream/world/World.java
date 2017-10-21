@@ -20,12 +20,12 @@ public final class World {
     public void addContinent(Continent continent){
         continentsSet.add(continent);
     }
-    public Set<Continent> getContinentsSet(){
+    public Set<Continent> getContinents(){
         return continentsSet;
     }
     public BigDecimal getPeopleQuantity(){
          return continentsSet.stream()
-                .flatMap(continent -> continent.getCountriesSet().stream())
+                .flatMap(continent -> continent.getCountries().stream())
                 .map(country -> country.getPeopleQuantity())
                 .reduce(BigDecimal.ZERO, (sum, current) -> sum = sum.add(current));
 
