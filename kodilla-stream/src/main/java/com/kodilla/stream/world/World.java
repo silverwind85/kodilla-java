@@ -7,25 +7,25 @@ import java.util.Set;
 public final class World {
     private final String name ;
 
-    private Set<Continent> continentsList= new HashSet<>();
+    private Set<Continent> continentsSet= new HashSet<>();
 
     public World(String name) {
         this.name = name;
     }
 
     public Set<Continent> getContinent() {
-        return continentsList;
+        return continentsSet;
     }
 
     public void addContinent(Continent continent){
-        continentsList.add(continent);
+        continentsSet.add(continent);
     }
-    public Set<Continent> getContinentsList(){
-        return continentsList;
+    public Set<Continent> getContinentsSet(){
+        return continentsSet;
     }
     public BigDecimal getPeopleQuantity(){
-        return continentsList.stream()
-                .flatMap(continent -> continent.getCountriesList().stream())
+         return continentsSet.stream()
+                .flatMap(continent -> continent.getCountriesSet().stream())
                 .map(country -> country.getPeopleQuantity())
                 .reduce(BigDecimal.ZERO, (sum, current) -> sum = sum.add(current));
 

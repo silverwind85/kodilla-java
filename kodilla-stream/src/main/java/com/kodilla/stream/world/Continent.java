@@ -6,21 +6,21 @@ import java.util.Set;
 public class Continent {
     private final String name;
 
-    private Set<Country> countriesList= new HashSet<>();
+    private Set<Country> countriesSet= new HashSet<>();
 
     public Continent(String name) {
         this.name = name;
     }
 
     public Set<Country> getCountry() {
-        return countriesList;
+        return countriesSet;
     }
 
     public void addCountry(Country country){
-        countriesList.add(country);
+        countriesSet.add(country);
     }
-    public Set<Country> getCountriesList(){
-        return countriesList;
+    public Set<Country> getCountriesSet(){
+        return countriesSet;
     }
 
 }
