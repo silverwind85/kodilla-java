@@ -1,4 +1,4 @@
-package com.kodilla.good.patterns.challenges.Food2Door;
+package com.kodilla.good.patterns.challenges.food.two.door;
 
 public class AppleContractor implements Contractor {
     private String name;
@@ -15,15 +15,15 @@ public class AppleContractor implements Contractor {
     }
 
 
-    public boolean process(OrderInformation orderInformation) {
-        if(orderInformation.getContractor().equals(this)){
+    public boolean process(Order orderInformation) {
+
             System.out.println("Contractor: " + orderInformation.getContractor().getName() +
                     " Address: " + orderInformation.getContractor().getAddress() +
                     " Product: " + orderInformation.getContractor().getProduct() + " Quantity: " + orderInformation.getQuantity());
             return true;
-        }
 
-        return false;
+
+
     }
 
     public String getName() {

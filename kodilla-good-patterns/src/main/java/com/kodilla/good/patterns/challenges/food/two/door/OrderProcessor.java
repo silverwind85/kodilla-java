@@ -1,4 +1,4 @@
-package com.kodilla.good.patterns.challenges.Food2Door;
+package com.kodilla.good.patterns.challenges.food.two.door;
 
 public class OrderProcessor {
 
@@ -11,11 +11,11 @@ public class OrderProcessor {
         this.contractor = contractor;
     }
 
-    public OrderDto process(final OrderInformation orderInformation) {
-        boolean isProcess = contractor.process(orderInformation);
-        if (isProcess) {
+    public OrderDto process(final Order orderInformation) {
+        boolean isProcessed = contractor.process(orderInformation);
+        if (isProcessed) {
             informationService.inform();
         }
-        return new OrderDto(contractor, isProcess);
+        return new OrderDto(contractor, isProcessed);
     }
 }

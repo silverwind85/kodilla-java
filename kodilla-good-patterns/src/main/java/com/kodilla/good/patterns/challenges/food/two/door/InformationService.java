@@ -1,4 +1,4 @@
-package com.kodilla.good.patterns.challenges.Food2Door;
+package com.kodilla.good.patterns.challenges.food.two.door;
 
 public interface InformationService {
     void inform();

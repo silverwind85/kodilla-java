@@ -1,10 +1,10 @@
-package com.kodilla.good.patterns.challenges.Food2Door;
+package com.kodilla.good.patterns.challenges.food.two.door;
 
-public class OrderInformation {
+public class Order {
     private Contractor contractor;
     private int quantity;
 
-    public OrderInformation(final Contractor contractor,final  int quantity) {
+    public Order(final Contractor contractor, final  int quantity) {
         this.contractor = contractor;
         this.quantity = quantity;
     }
