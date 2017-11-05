@@ -1,20 +1,20 @@
 package com.kodilla.exception.test;
 
 public class Flight {
-    private  String departureAiport;
-    private String arrivalAiport ;
+    private  String departureAirport;
+    private String arrivalAirport ;
 
     public Flight(String departureAiport, String arrivalAiport) {
-        this.departureAiport = departureAiport;
-        this.arrivalAiport = arrivalAiport;
+        this.departureAirport = departureAiport;
+        this.arrivalAirport = arrivalAiport;
     }
 
-    public String getDepartureAiport() {
-        return departureAiport;
+    public String getDepartureAirport() {
+        return departureAirport;
     }
 
-    public String getArrivalAiport() {
-        return arrivalAiport;
+    public String getArrivalAirport() {
+        return arrivalAirport;
     }
 
     @Override
@@ -24,15 +24,15 @@ public class Flight {
 
         Flight flight = (Flight) o;
 
-        if (departureAiport != null ? !departureAiport.equals(flight.departureAiport) : flight.departureAiport != null)
+        if (departureAirport != null ? !departureAirport.equals(flight.departureAirport) : flight.departureAirport != null)
             return false;
-        return arrivalAiport != null ? arrivalAiport.equals(flight.arrivalAiport) : flight.arrivalAiport == null;
+        return arrivalAirport != null ? arrivalAirport.equals(flight.arrivalAirport) : flight.arrivalAirport == null;
     }
 
     @Override
     public int hashCode() {
-        int result = departureAiport != null ? departureAiport.hashCode() : 0;
-        result = 31 * result + (arrivalAiport != null ? arrivalAiport.hashCode() : 0);
+        int result = departureAirport != null ? departureAirport.hashCode() : 0;
+        result = 31 * result + (arrivalAirport != null ? arrivalAirport.hashCode() : 0);
         return result;
     }
 }
