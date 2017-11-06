@@ -5,39 +5,39 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class FlightService {
-   private  List<Flight> list;
+    private List<Flight> flights;
 
-    public FlightService(List<Flight> list) {
-        this.list = list;
+    public FlightService(List<Flight> flights) {
+        this.flights = flights;
     }
 
-    public List<String> searchAllFlightsFromTheSpecifiedCity(String departureCity) {
-        return list.stream().filter(departure -> departure
+    public List<Flight> searchAllFlightsFromTheSpecifiedCity(String departure) {
+        return flights.stream().filter(d-> d
                 .getDepartureAirport()
-                .equals(departureCity))
-                .map(arrival -> arrival.getArrivalAirport())
+                .equals(departure))
                 .collect(Collectors.toList());
 
     }
 
-    public List<String> searchAllFlightsToYourDestination(String arrivalCity) {
-        return list.stream().filter(arrival -> arrival
+    public List<Flight> searchAllFlightsToYourDestination(String arrival) {
+        return flights.stream().filter(a-> a
                 .getArrivalAirport()
-                .equals(arrivalCity))
-                .map(departure -> departure.getDepartureAirport())
+                .equals(arrival))
                 .collect(Collectors.toList());
     }
 
-    public List<Flight> searchFlightThroughAnotherCity(String departureCity, String arrivalCity) {
+    public List<Flight> searchFlightThroughAnotherCity(String departure,String indirect, String arrival) {
 
-        List<Flight> listDeparture = list.stream().filter(departure -> departure
+        List<Flight> listDeparture =flights.stream().filter(d -> d
                 .getDepartureAirport()
-                .equals(departureCity))
+                .equals(departure))
+                .filter(a->a.getArrivalAirport().equals(indirect))
                 .collect(Collectors.toList());
 
-        List<Flight> listArrival = list.stream().filter(departure -> departure
+        List<Flight> listArrival = flights.stream().filter(a -> a
                 .getArrivalAirport()
-                .equals(arrivalCity))
+                .equals(arrival))
+                .filter(d->d.getDepartureAirport().equals(indirect))
                 .collect(Collectors.toList());
 
         List<Flight> listResult = new ArrayList<>();
