@@ -3,16 +3,17 @@ package com.kodilla.pattern.procotype.library;
 import com.kodilla.patterns.prototype.library.Book;
 import com.kodilla.patterns.prototype.library.Library;
 import org.junit.Assert;
-import org.junit.BeforeClass;
+import org.junit.Before;
 import org.junit.Test;
 
 import java.time.LocalDate;
 import java.util.stream.IntStream;
 
 public class LibraryTestSuite {
-    private static Library library;
-    @BeforeClass
-    public static void  testAddBooksToYourLibrary(){
+    private  Library library;
+
+    @Before
+    public  void  before(){
         Library libraryWarsaw = new Library("Library of Warsaw");
         IntStream.iterate(1, n -> n + 1)
                 .limit(10)
@@ -21,7 +22,7 @@ public class LibraryTestSuite {
                         .add(new Book("Book number " + n,
                                 "Jurek number " + n,
                                 LocalDate.of(2001 + n, 12, 1 + n))));
-        library =libraryWarsaw;
+        library = libraryWarsaw;
     }
     @Test
     public void testGetBooksClone() {
