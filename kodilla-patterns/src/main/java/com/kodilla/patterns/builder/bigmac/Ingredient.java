@@ -1,6 +1,6 @@
 package com.kodilla.patterns.builder.bigmac;
 
-public enum Ingredients {
+public enum Ingredient {
     onion("onion"),
     bacon("bacon"),
     chiliPeppers("chili peppers"),
@@ -9,7 +9,7 @@ public enum Ingredients {
 
    private String name;
 
-    private  Ingredients(String name) {
+    private Ingredient(String name) {
         this.name = name;
     }
     public String getName(){

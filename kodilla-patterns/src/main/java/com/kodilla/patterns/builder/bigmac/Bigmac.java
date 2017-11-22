@@ -7,13 +7,13 @@ public final class Bigmac {
     private Roll roll;
     private int burger;
     private Sauce sauce;
-    private List<Ingredients> ingredients;
+    private List<Ingredient> ingredients;
 
     public static class BigmacBuilder {
         private Roll roll;
         private int burger;
         private Sauce sauce;
-        private List<Ingredients> ingredients= new ArrayList<>();
+        private List<Ingredient> ingredients= new ArrayList<>();
 
         public BigmacBuilder withRoll(Roll roll) {
             this.roll = roll;
@@ -27,18 +27,18 @@ public final class Bigmac {
             this.sauce = sauce;
             return this;
         }
-        public BigmacBuilder withIngredient(Ingredients ingredient) {
+        public BigmacBuilder withIngredients(Ingredient ingredient) {
             ingredients.add(ingredient);
             return this;
         }
-        public Bigmac withBuild(){
+        public Bigmac Build(){
             return new Bigmac(roll,burger,sauce,ingredients);
 
         }
 
     }
 
-    public Bigmac(Roll roll, int burger, Sauce sauce, List<Ingredients> ingredients) {
+    public Bigmac(Roll roll, int burger, Sauce sauce, List<Ingredient> ingredients) {
         this.roll = roll;
         this.burger = burger;
         this.sauce = sauce;
@@ -57,7 +57,7 @@ public final class Bigmac {
         return sauce;
     }
 
-    public List<Ingredients> getIngredients() {
+    public List<Ingredient> getIngredients() {
         return ingredients;
     }
 
