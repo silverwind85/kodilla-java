@@ -1,7 +1,7 @@
 package com.kodilla.pattern.builder.bigmac;
 
 import com.kodilla.patterns.builder.bigmac.Bigmac;
-import com.kodilla.patterns.builder.bigmac.Ingredients;
+import com.kodilla.patterns.builder.bigmac.Ingredient;
 import com.kodilla.patterns.builder.bigmac.Roll;
 import com.kodilla.patterns.builder.bigmac.Sauce;
 import org.junit.Assert;
@@ -15,16 +15,16 @@ public class BigmacTestSuite {
                 .withRoll(Roll.rollSesame)
                 .withBurger(2)
                 .withSauce(Sauce.barbecue)
-                .withIngredient(Ingredients.bacon)
-                .withIngredient(Ingredients.chiliPeppers)
-                .withIngredient(Ingredients.onion)
-                .withIngredient(Ingredients.mushrooms)
-                .withIngredient(Ingredients.shrimps)
-                .withBuild();
+                .withIngredient(Ingredient.bacon)
+                .withIngredient(Ingredient.chiliPeppers)
+                .withIngredient(Ingredient.onion)
+                .withIngredient(Ingredient.mushrooms)
+                .withIngredient(Ingredient.shrimps)
+                .Build();
 
         System.out.println(bigmac);
         //When
-        System.out.println(bigmac.getIngredients().indexOf(Ingredients.bacon));
+        System.out.println(bigmac.getIngredients().indexOf(Ingredient.bacon));
         int howManyIngredients = bigmac.getIngredients().size();
         //Then
         Assert.assertEquals(5, howManyIngredients);

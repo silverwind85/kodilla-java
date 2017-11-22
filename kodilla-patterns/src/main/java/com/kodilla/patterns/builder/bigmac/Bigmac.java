@@ -27,7 +27,7 @@ public final class Bigmac {
             this.sauce = sauce;
             return this;
         }
-        public BigmacBuilder withIngredients(Ingredient ingredient) {
+        public BigmacBuilder withIngredient(Ingredient ingredient) {
             ingredients.add(ingredient);
             return this;
         }
