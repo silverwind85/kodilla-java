@@ -41,3 +41,9 @@ insert into ISSUESS(ISSUESLIST_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO) val
 insert into ISSUESS(ISSUESLIST_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO) values (3,"Read book","I will be reading book everyday",2); 
 
 commit;
+
+Module 12.4
+
+select I.SUMMARY, L.NAME from issuess I, issueslist L where I.ISSUESLIST_ID = L.ID;
+select I.SUMMARY, U.FIRSTNAME,U.LASTNAME from issuess I, users U where I.USER_ID_ASSIGNEDTO = U.ID;
+select U.FIRSTNAME, U.LASTNAME, count(*) as ISSUES_NUMBER from issuess I, users U where I.USER_ID_ASSIGNEDTO = U.ID group by I.USER_ID_ASSIGNEDTO;
