@@ -12,7 +12,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.math.BigDecimal;
-import java.util.List;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -26,13 +25,12 @@ public class InvoiceDaoTestSuite {
 
     @After
     public void after(){
-        invoiceDao.deleteAll();
+        /*invoiceDao.deleteAll();
         productDao.deleteAll();
-        itemDao.deleteAll();
-
+        itemDao.deleteAll();*/
     }
     @Test
-    public void testProductDaoSave(){
+    public void testInvoiceDaoSave(){
         //Given
         Item item1 = new Item(new BigDecimal(5),5,new BigDecimal(25));
         Item item2 = new Item(new BigDecimal(2),2,new BigDecimal(4));
@@ -52,16 +50,22 @@ public class InvoiceDaoTestSuite {
         productDao.save(tv);
         productDao.save(book);
 
-        List<Item> listResult = itemDao.findAll();
+        /*List<Item> listResult = itemDao.findAll();*/
         Invoice invoice = new Invoice("2343");
-        invoice.setItems(listResult);
+
+        invoice.getItems().add(item1);
+        invoice.getItems().add(item2);
+        invoice.getItems().add(item3);
+
+        item1.setInvoice(invoice);
+        item2.setInvoice(invoice);
+        item3.setInvoice(invoice);
+        /*invoice.setItems(listResult);*/
+        invoiceDao.save(invoice);
         //Then
         Assert.assertEquals(3,invoice.getItems().size());
         Assert.assertEquals(1,smartphone.getItems().size());
         Assert.assertEquals(1,tv.getItems().size());
         Assert.assertEquals(1,book.getItems().size());
-
-
     }
-
 }
