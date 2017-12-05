@@ -147,7 +147,6 @@ public class CompanyDaoTestSuite {
         } catch (Exception e) {
             //do nothing
         }
-
     }
 
 }
