@@ -5,6 +5,14 @@ import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
+
+@NamedNativeQuery(
+        name="Company.retrieveNameCompanyForFirstThreeChar",
+        query =" SELECT * FROM companies where company_name like =:serachKeyword",
+        resultClass = Company.class
+)
+
+
 @Entity
 @Table(name = "COMPANIES")
 public class Company {

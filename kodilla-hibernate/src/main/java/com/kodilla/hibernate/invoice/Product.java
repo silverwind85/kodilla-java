@@ -18,6 +18,7 @@ public class Product {
     public Product(String name) {
         this.name = name;
     }
+
     @Id
     @GeneratedValue
     @NotNull
@@ -25,10 +26,12 @@ public class Product {
     public int getId() {
         return id;
     }
+
     @Column(name = "PRODUCT_NAME")
     public String getName() {
         return name;
     }
+
     @OneToMany(targetEntity = Item.class,
     mappedBy = "product",
     cascade = CascadeType.ALL,

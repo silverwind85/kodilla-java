@@ -25,9 +25,9 @@ public class InvoiceDaoTestSuite {
 
     @After
     public void after(){
-        /*invoiceDao.deleteAll();
+        invoiceDao.deleteAll();
         productDao.deleteAll();
-        itemDao.deleteAll();*/
+        itemDao.deleteAll();
     }
     @Test
     public void testInvoiceDaoSave(){
@@ -38,34 +38,30 @@ public class InvoiceDaoTestSuite {
         Product smartphone = new Product("Smartphone");
         Product tv = new Product("TV");
         Product book = new Product("Book");
-
-        smartphone.getItems().add(item1);
-        tv.getItems().add(item2);
-        book.getItems().add(item3);
-        item1.setProduct(smartphone);
-        item2.setProduct(tv);
-        item3.setProduct(book);
-        //When
-        productDao.save(smartphone);
-        productDao.save(tv);
-        productDao.save(book);
-
-        /*List<Item> listResult = itemDao.findAll();*/
         Invoice invoice = new Invoice("2343");
-
-        invoice.getItems().add(item1);
-        invoice.getItems().add(item2);
-        invoice.getItems().add(item3);
 
         item1.setInvoice(invoice);
         item2.setInvoice(invoice);
         item3.setInvoice(invoice);
-        /*invoice.setItems(listResult);*/
+
+        item1.setProduct(smartphone);
+        item2.setProduct(tv);
+        item3.setProduct(book);
+
+        invoice.getItems().add(item1);
+        invoice.getItems().add(item2);
+        invoice.getItems().add(item3);
+        //When
+        productDao.save(smartphone);
+        productDao.save(tv);
+        productDao.save(book);
         invoiceDao.save(invoice);
         //Then
         Assert.assertEquals(3,invoice.getItems().size());
-        Assert.assertEquals(1,smartphone.getItems().size());
-        Assert.assertEquals(1,tv.getItems().size());
-        Assert.assertEquals(1,book.getItems().size());
+        Assert.assertEquals("Smartphone",item1.getProduct().getName());
+        Assert.assertEquals("2343",item1.getInvoice().getNumber());
+        Assert.assertEquals("TV",item2.getProduct().getName());
+        Assert.assertEquals("Book",item3.getProduct().getName());
+
     }
 }

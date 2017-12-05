@@ -28,11 +28,13 @@ public class Item {
     public int getId() {
         return id;
     }
+
     @ManyToOne
-    @JoinColumn(name = "ID_PRODUCT")
+    @JoinColumn(name = "PRODUCT_ID")
     public Product getProduct() {
         return product;
     }
+
     @Column(name = "PRICE")
     public BigDecimal getPrice() {
         return price;
@@ -42,10 +44,12 @@ public class Item {
     public int getQuantity() {
         return quantity;
     }
+
     @Column(name ="VALUE")
     public BigDecimal getValue() {
         return value;
     }
+
     @ManyToOne
     @JoinColumn(name = "INVOICE_ID")
     public Invoice getInvoice() {
