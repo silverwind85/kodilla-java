@@ -24,8 +24,7 @@ public class TaskListDaoSuiteTest {
     @Autowired
     private TaskListDao taskListDao;
     @Autowired
-     TaskDao taskDao;
-
+    private TaskDao taskDao;
 
     @After
     public void after(){
@@ -102,15 +101,12 @@ public class TaskListDaoSuiteTest {
         List<Task> enoughTimeTasks = taskDao.retrieveTasksWithEnoughTime();
         List<Task> durationLongerThanTasks = taskDao.retrieveTasksWithDurationLongerThan(6);
         //Then
-        try {
+
             Assert.assertEquals(1, longTasks.size());
             Assert.assertEquals(3, shortTasks.size());
             Assert.assertEquals(3, enoughTimeTasks.size());
-            Assert.assertEquals(2,durationLongerThanTasks);
-        } finally {
-            //CleanUp
-            taskListDao.delete(id);
-        }
+            Assert.assertEquals(2,durationLongerThanTasks.size());
+
     }
 
 }

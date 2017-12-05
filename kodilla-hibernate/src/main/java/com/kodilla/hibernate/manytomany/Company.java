@@ -8,7 +8,9 @@ import java.util.List;
 
 @NamedNativeQuery(
         name="Company.retrieveNameCompanyForFirstThreeChar",
-        query =" SELECT * FROM companies where company_name like =:serachKeyword",
+        query =" SELECT *\n" +
+                "from companies \n" +
+                "WHERE SUBSTRING(company_name, 1 , 3) =:KEYWORD",
         resultClass = Company.class
 )
 

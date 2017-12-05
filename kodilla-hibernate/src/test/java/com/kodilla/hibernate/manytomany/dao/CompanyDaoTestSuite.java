@@ -96,21 +96,17 @@ public class CompanyDaoTestSuite {
         List<Employee> listLastname = employeeDao.retrieveLastnameEmployee("Smith");
         //Then
         Assert.assertEquals("Smith",listLastname.get(0).getLastname());
-        for (Employee lastName:listLastname
-             ) {
-            System.out.println(lastName.getLastname());
-
-        }
         //CleanUp
         try {
-            /*companyDao.delete(softwareMachineId);
+            companyDao.delete(softwareMachineId);
             companyDao.delete(dataMaestersId);
-            companyDao.delete(greyMatterId);*/
+            companyDao.delete(greyMatterId);
         } catch (Exception e) {
             //do nothing
         }
     }
-    public void insertData(){
+    @Test
+    public void testretrieveNameCompanyForFirstThreeChar(){
         //Given
         Employee johnSmith = new Employee("John", "Smith");
         Employee stephanieClarckson = new Employee("Stephanie", "Clarckson");
@@ -132,12 +128,26 @@ public class CompanyDaoTestSuite {
         lindaKovalsky.getCompanies().add(dataMaesters);
         lindaKovalsky.getCompanies().add(greyMatter);
 
-        //When
         companyDao.save(softwareMachine);
         int softwareMachineId = softwareMachine.getId();
         companyDao.save(dataMaesters);
         int dataMaestersId = dataMaesters.getId();
         companyDao.save(greyMatter);
         int greyMatterId = greyMatter.getId();
+        //When
+        List<Company> resultName = companyDao.retrieveNameCompanyForFirstThreeChar("dat");
+        //Then
+        Assert.assertEquals("Data Maesters",resultName.get(0).getName());
+
+        //CleanUp
+        try {
+            companyDao.delete(softwareMachineId);
+            companyDao.delete(dataMaestersId);
+            companyDao.delete(greyMatterId);
+        } catch (Exception e) {
+            //do nothing
+        }
+
     }
+
 }
