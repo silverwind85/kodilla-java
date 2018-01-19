@@ -31,7 +31,7 @@ public final class Bigmac {
             ingredients.add(ingredient);
             return this;
         }
-        public Bigmac Build(){
+        public Bigmac build(){
             return new Bigmac(roll,burger,sauce,ingredients);
 
         }

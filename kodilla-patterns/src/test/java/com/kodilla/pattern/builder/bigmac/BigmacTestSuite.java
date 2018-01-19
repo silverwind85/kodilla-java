@@ -20,7 +20,7 @@ public class BigmacTestSuite {
                 .withIngredient(Ingredient.onion)
                 .withIngredient(Ingredient.mushrooms)
                 .withIngredient(Ingredient.shrimps)
-                .Build();
+                .build();
 
         System.out.println(bigmac);
         //When

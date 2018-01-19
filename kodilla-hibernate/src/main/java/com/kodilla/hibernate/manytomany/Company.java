@@ -5,14 +5,22 @@ import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
-
+@NamedNativeQueries({
 @NamedNativeQuery(
         name="Company.retrieveNameCompanyForFirstThreeChar",
         query =" SELECT *\n" +
                 "from companies \n" +
                 "WHERE SUBSTRING(company_name, 1 , 3) =:KEYWORD",
         resultClass = Company.class
+),
+@NamedNativeQuery(
+        name="Company.retrieveNameCompany",
+        query =" SELECT *\n" +
+                "from companies \n" +
+                "WHERE company_name LIKE CONCAT('%',:KEYWORD,'%')",
+        resultClass = Company.class
 )
+})
 
 
 @Entity

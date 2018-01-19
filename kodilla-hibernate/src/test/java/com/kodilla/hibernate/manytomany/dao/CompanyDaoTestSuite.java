@@ -61,6 +61,13 @@ public class CompanyDaoTestSuite {
         Assert.assertNotEquals(0, softwareMachineId);
         Assert.assertNotEquals(0, dataMaestersId);
         Assert.assertNotEquals(0, greyMatterId);
+        try {
+            companyDao.delete(softwareMachineId);
+            companyDao.delete(dataMaestersId);
+            companyDao.delete(greyMatterId);
+        } catch (Exception e) {
+            //do nothing
+        }
 
         }
     @Test
@@ -136,8 +143,13 @@ public class CompanyDaoTestSuite {
         int greyMatterId = greyMatter.getId();
         //When
         List<Company> resultName = companyDao.retrieveNameCompanyForFirstThreeChar("dat");
+        List<Company> resultName2 = companyDao.retrieveNameCompany("Software Machine");
+        List<Employee> resultName3 = employeeDao.retrieveEmployeeByFirstNameLastMame("John Smith");
         //Then
         Assert.assertEquals("Data Maesters",resultName.get(0).getName());
+        Assert.assertEquals(1,resultName2.size());
+        Assert.assertEquals("Software Machine",resultName2.get(0).getName());
+        Assert.assertEquals(1,resultName3.size());
 
         //CleanUp
         try {
