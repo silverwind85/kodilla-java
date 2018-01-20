@@ -78,29 +78,34 @@ public class SearchFacadeTestSuite {
 
     @Test
     public void testSearchCompany() {
+        //When
         List<Company> result = searchFacade.processSearchCompany("Software Machine");
         List<Company> result2 = searchFacade.processSearchCompany("S");
         List<Company> result3 = searchFacade.processSearchCompany("M");
-
-        Assert.assertEquals(1, result.size());
+        //Then
+        Assert.assertTrue(1<=result.size());
         Assert.assertEquals("Software Machine", result.get(0).getName());
         Assert.assertEquals("Software Machine", result2.get(0).getName());
-        Assert.assertEquals(3, result3.size());
+        Assert.assertTrue(3<=result3.size());
 
 
     }
 
     @Test
     public void testSearchEmployee() {
+        //When
         List<Employee> result = searchFacade.processSearchEmployee("John Smith");
+        String searchResult = result.get(0).getFirstname()+" "+result.get(0).getLastname();
         List<Employee> result2 = searchFacade.processSearchEmployee("John");
         List<Employee> result3 = searchFacade.processSearchEmployee("o");
-
-
-        Assert.assertEquals(1,result.size());
+        String searchResult2 = result3.get(0).getFirstname()+" "+result3.get(0).getLastname();
+        //Then
+        Assert.assertTrue(1<=result.size());
+        Assert.assertTrue( searchResult.contains("John Smith"));
         Assert.assertEquals("Smith",result.get(0).getLastname());
-        Assert.assertEquals(1,result2.size());
-        Assert.assertEquals(3,result3.size());
+        Assert.assertTrue(1 <= result2.size());
+        Assert.assertTrue(3 <= result3.size());
+        Assert.assertTrue(searchResult2.contains("o"));
 
     }
 }

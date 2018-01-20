@@ -7,17 +7,17 @@ import java.util.List;
 
 @NamedNativeQueries({
 @NamedNativeQuery(
-        name="Company.retrieveNameCompanyForFirstThreeChar",
+        name="Company.findByPartyOfNameForFirstThreeChar",
         query =" SELECT *\n" +
                 "from companies \n" +
-                "WHERE SUBSTRING(company_name, 1 , 3) =:KEYWORD",
+                "WHERE SUBSTRING(company_name, 1 , 3) =:PARTY_OF_NAME",
         resultClass = Company.class
 ),
 @NamedNativeQuery(
-        name="Company.retrieveNameCompany",
+        name="Company.findByPartyOfName",
         query =" SELECT *\n" +
                 "from companies \n" +
-                "WHERE company_name LIKE CONCAT('%',:KEYWORD,'%')",
+                "WHERE company_name LIKE CONCAT('%',:PARTY_OF_NAME,'%')",
         resultClass = Company.class
 )
 })

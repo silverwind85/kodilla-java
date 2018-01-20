@@ -100,7 +100,7 @@ public class CompanyDaoTestSuite {
         companyDao.save(greyMatter);
         int greyMatterId = greyMatter.getId();
         //When
-        List<Employee> listLastname = employeeDao.retrieveLastnameEmployee("Smith");
+        List<Employee> listLastname = employeeDao.findByLastName("Smith");
         //Then
         Assert.assertEquals("Smith",listLastname.get(0).getLastname());
         //CleanUp
@@ -142,9 +142,9 @@ public class CompanyDaoTestSuite {
         companyDao.save(greyMatter);
         int greyMatterId = greyMatter.getId();
         //When
-        List<Company> resultName = companyDao.retrieveNameCompanyForFirstThreeChar("dat");
-        List<Company> resultName2 = companyDao.retrieveNameCompany("Software Machine");
-        List<Employee> resultName3 = employeeDao.retrieveEmployeeByFirstNameLastMame("John Smith");
+        List<Company> resultName = companyDao.findByPartyOfNameForFirstThreeChar("dat");
+        List<Company> resultName2 = companyDao.findByPartyOfName("Software Machine");
+        List<Employee> resultName3 = employeeDao.findByPartyOfName("John Smith");
         //Then
         Assert.assertEquals("Data Maesters",resultName.get(0).getName());
         Assert.assertEquals(1,resultName2.size());

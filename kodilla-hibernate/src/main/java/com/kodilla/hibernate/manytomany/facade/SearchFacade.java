@@ -21,13 +21,13 @@ public class SearchFacade {
     private static final Logger LOGGER = LoggerFactory.getLogger(SearchFacade.class);
 
 
-    public List<Company> processSearchCompany(String keyword){
-        LOGGER.info("Starting search new: "+keyword);
-            return companyDao.retrieveNameCompany(keyword);
+    public List<Company> processSearchCompany(String partyOfName){
+        LOGGER.info("Starting search new: "+partyOfName);
+            return companyDao.findByPartyOfName(partyOfName);
     }
-    public List<Employee> processSearchEmployee(String keyword){
-        LOGGER.info("Starting search new: "+keyword);
-            return employeeDao.retrieveEmployeeByFirstNameLastMame(keyword);
+    public List<Employee> processSearchEmployee(String partyOfName){
+        LOGGER.info("Starting search new: "+partyOfName);
+            return employeeDao.findByPartyOfName(partyOfName);
     }
 
 }

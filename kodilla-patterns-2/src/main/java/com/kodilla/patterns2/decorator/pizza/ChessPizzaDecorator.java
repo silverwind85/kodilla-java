@@ -2,8 +2,8 @@ package com.kodilla.patterns2.decorator.pizza;
 
 import java.math.BigDecimal;
 
-public class DoubleChessPizzaDecorator extends AbstractPizzaOrderDecorator {
-    protected DoubleChessPizzaDecorator(PizzaOrder pizzaOrder) {
+public class ChessPizzaDecorator extends AbstractPizzaOrderDecorator {
+    protected ChessPizzaDecorator(PizzaOrder pizzaOrder) {
         super(pizzaOrder);
 
     }
@@ -13,8 +13,8 @@ public class DoubleChessPizzaDecorator extends AbstractPizzaOrderDecorator {
     }
 
 
-    public String getName() {
-        return super.getName() + " double chess";
+    public String getDescription() {
+        return super.getDescription() + "chess, ";
 
     }
 

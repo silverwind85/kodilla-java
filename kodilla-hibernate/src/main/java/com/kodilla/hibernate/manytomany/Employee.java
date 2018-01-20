@@ -6,14 +6,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 @NamedQuery(
-        name = "Employee.retrieveLastnameEmployee",
-        query = "FROM Employee WHERE lastname = :LASTNAME"
+        name = "Employee.findByLastName",
+        query = "FROM Employee WHERE lastname = :LAST_NAME"
 )
 @NamedNativeQuery(
-        name="Employee.retrieveEmployeeByFirstNameLastMame",
+        name="Employee.findByPartyOfName",
         query =" SELECT *\n" +
                 "from employees \n" +
-                "WHERE CONCAT(firstname,' ',lastname) like  CONCAT('%',:KEYWORD,'%') ",
+                "WHERE CONCAT(firstname,' ',lastname) like  CONCAT('%',:PARTY_OF_NAME,'%') ",
         resultClass = Employee.class
 )
 
