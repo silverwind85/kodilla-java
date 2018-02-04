@@ -1,0 +1,20 @@
+drop function if exists findByPesel;
+
+delimiter $$
+
+create function findByPesel(pesel varchar(11) ) returns varchar(255) deterministic 
+
+begin 
+   declare message varchar(255);
+    
+if pesel  regexp '[1-9]' then
+	return (select peselid from readers where peselid like Concat('%',pesel,'%'));
+  else
+  set  message  ='Not correct pesel. Write a pesel consisting of digits greater than zero';
+  end if;
+  return message;
+  end $$
+  
+  delimiter ;
+  
+  select findByPesel('5') as result;
