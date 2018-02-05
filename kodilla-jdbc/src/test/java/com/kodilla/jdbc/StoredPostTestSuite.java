@@ -30,20 +30,20 @@ public class StoredPostTestSuite {
     public void testUpdateBestSellers() throws Exception{
         //Given
         DbManager dbManager = DbManager.getInstance();
-        String sqlUpdate = "UPDATE BOOKS SET BESTSELLER=\"0\"";
+        String sqlUpdate = "UPDATE BOOKS SET BESTSELLER=NULL";
         Statement statement = dbManager.getConnection().createStatement();
         statement.executeUpdate(sqlUpdate);
         //When
         String sqlProcedureCall = "CALL UpdateBestSellers()";
         statement.execute(sqlProcedureCall);
         //then
-        String sqlCheckTable = "SELECT COUNT(*) AS QUANTITY_BESTSELLERS FROM BOOKS WHERE BESTSELLER=\"1\"";
+        String sqlCheckTable = "SELECT COUNT(*) AS QUANTITY_BESTSELLERS FROM BOOKS WHERE BESTSELLER=NULL";
         ResultSet rs = statement.executeQuery(sqlCheckTable);
         int howMany=-2;
         if (rs.next()){
             howMany = rs.getInt("QUANTITY_BESTSELLERS");
         }
-        Assert.assertEquals(2,howMany);
+        Assert.assertEquals(0,howMany);
     }
 
 }
