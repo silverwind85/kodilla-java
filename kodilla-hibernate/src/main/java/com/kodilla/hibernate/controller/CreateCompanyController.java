@@ -23,11 +23,15 @@ public class CreateCompanyController {
         return "createCompany";
     }
     @PostMapping("createCompany")
-    public String addProduct(Model model, @ModelAttribute Company company, Employee employee, BindingResult result){
+    public String addProduct(Model model, @ModelAttribute Company company, BindingResult result){
+        Employee employee = company.getEmployees().get(0);
         company.getEmployees().add(employee);
         employee.getCompanies().add(company);
+
+
         companyDao.save(company);
-        return "createCompany";
+        return "redirct:productList";
     }
+
 
 }

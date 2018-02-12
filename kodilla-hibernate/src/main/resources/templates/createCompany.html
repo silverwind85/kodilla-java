@@ -9,21 +9,22 @@
 <div th:replace="/common/header :: menu-second"/>
 <main class="container">
     <div class="row">
-        <form class="form-horizontal"  method="post" th:object="${company}">
+        <form class="form-horizontal"  method="post" >
             <fieldset>
                 <legend class="center-block">Company</legend>
                 <div class="form-group">
                     <label for="name">Name</label>
                     <input type="text" class="form-control" id="name"  required="required"
-                           placeholder="name"  th:field="*{name}"/>
+                           placeholder="name"  th:value="${name}" name="name"/>
                 </div>
 
 
                 <div class="form-group">
-                    <label for="employee">Emplyees</label>
-                    <input type="text" class="form-control" id="employee" required="required"
-                           placeholder="employee" th:field="*{employees}"/>
+                    <label for="employees">Emplyees</label>
+                    <input type="" class="form-control" id="employees" required="required"
+                           placeholder="employee" th:value="${firstname}"/>
                 </div>
+
 
 
                 <button type="submit" class="btn btn-primary">add</button>
